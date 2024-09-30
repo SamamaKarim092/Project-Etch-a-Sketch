@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+    width: 700px; /* Set total width for the grid */
+    height: 700px; /* Set total height for the grid */
+    margin: 5px;
+}
+
+.box {
+    border: 1px solid black;
+    box-sizing: border-box; /* Include padding and border in width and height */
+}
+body {
+    display: flex;
+    justify-content: center; /* Center the container */
+    align-items: center;     /* Center the container */
+    position: relative;      /* Enable positioning for child elements */
+    height: 100vh;           /* Full viewport height */
+    margin: 0;               /* Remove default body margin */
+}
+.change-size {
+    position: absolute;      /* Use absolute positioning */
+    top: 10px;              /* Distance from the top */
+    left: 10px;             /* Distance from the left */
+    z-index: 1;             /* Ensure the button is above other elements */
+    background-color: #0091f7; /* Initial background color */
+    color: #f2f2f2;         /* Text color */
+    border: none;           /* No border */
+    margin: 5px;            /* Margin around the button */
+    padding: 9px;           /* Padding inside the button */
+    font-weight: 600;       /* Bold text */
+    cursor: pointer;        /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Button Hover Effect */
+.change-size:hover {
+    background-color: #007bb5; /* Darker shade on hover */
+}
