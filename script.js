@@ -18,50 +18,39 @@ function createGrid(size) {
 
         // Function to generate a random color
         function getRandomColor() {
-            // Generate a random number between 0 and 16777215 (the decimal equivalent of #FFFFFF)
             const randomColor = Math.floor(Math.random() * 16777215);
-            
-            // Convert the number to hexadecimal and pad it with zeros if necessary
             const hexColor = '#' + randomColor.toString(16).padStart(6, '0');
-            
             return hexColor; // Return the random color in hexadecimal format
         }
 
         // Function to darken the color
         function darkenColor(color, amount) {
-            // Convert hex to RGB
             let r = parseInt(color.slice(1, 3), 16);
             let g = parseInt(color.slice(3, 5), 16);
             let b = parseInt(color.slice(5, 7), 16);
 
-            // Darken the color by reducing each RGB component
-            r = Math.max(0, Math.floor(r * (1 - amount))); // Ensure RGB values do not go below 0
+            r = Math.max(0, Math.floor(r * (1 - amount)));
             g = Math.max(0, Math.floor(g * (1 - amount)));
             b = Math.max(0, Math.floor(b * (1 - amount)));
 
-            // Convert back to hex
             return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
         }
 
         // Event listener for mouse entering the box
         box.addEventListener('mouseenter', () => {
-            if (interactionCount < 10) { // Limit interactions to 10
-                // If the box has no background color, assign a random color
+            if (interactionCount < 10) {
                 const currentColor = box.style.backgroundColor || getRandomColor();
-                
-                // Convert currentColor from rgb or rgba to hex if necessary
                 let hexColor;
                 if (currentColor.startsWith('rgb')) {
-                    // Convert rgb/rgba to hex
                     const rgb = currentColor.match(/\d+/g);
                     hexColor = `#${((1 << 24) + (parseInt(rgb[0]) << 16) + (parseInt(rgb[1]) << 8) + parseInt(rgb[2])).toString(16).slice(1)}`;
                 } else {
-                    hexColor = currentColor; // Use the hex color directly
+                    hexColor = currentColor;
                 }
 
-                const newColor = darkenColor(hexColor, 0.1); // Darken by 10%
-                box.style.backgroundColor = newColor; // Update the box's background color
-                interactionCount++; // Increment the interaction count
+                const newColor = darkenColor(hexColor, 0.1);
+                box.style.backgroundColor = newColor;
+                interactionCount++;
             }
         });
     }
@@ -78,6 +67,14 @@ document.querySelector('.change-size').addEventListener('click', () => {
     } else {
         alert('Please enter a valid number between 1 and 100.'); // Alert the user if input is invalid
     }
+});
+
+// Event listener for the clear-size button
+document.querySelector('.clear-size').addEventListener('click', () => {
+    const boxes = document.querySelectorAll('.box'); // Select all box elements
+    boxes.forEach(box => {
+        box.style.backgroundColor = ''; // Reset the background color of each box to default
+    });
 });
 
 // Create an initial grid of 16x16 when the script loads

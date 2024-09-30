@@ -1,16 +1,3 @@
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    border: 2px solid black;
-    width: 700px; /* Set total width for the grid */
-    height: 700px; /* Set total height for the grid */
-    margin: 5px;
-}
-
-.box {
-    border: 1px solid black;
-    box-sizing: border-box; /* Include padding and border in width and height */
-}
 body {
     display: flex;
     justify-content: center; /* Center the container */
@@ -18,7 +5,29 @@ body {
     position: relative;      /* Enable positioning for child elements */
     height: 100vh;           /* Full viewport height */
     margin: 0;               /* Remove default body margin */
+    background: linear-gradient(135deg, #a2c2e9, #f5e6e1); /* Gradient background */
+    background-repeat: no-repeat; /* Prevent background from repeating */
+    background-size: cover; /* Ensure background covers the entire viewport */
+    font-family: Arial, sans-serif; /* Set a clean font for the body text */
 }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+    width: 700px; /* Set total width for the grid */
+    height: 700px; /* Set total height for the grid */
+    margin: 5px;
+    border-radius: 10px; /* Add rounded corners to the container */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+}
+
+.box {
+    border: 1px solid black;
+    box-sizing: border-box; /* Include padding and border in width and height */
+    transition: background-color 0.3s; /* Smooth transition for box color */
+}
+
 .change-size {
     position: absolute;      /* Use absolute positioning */
     top: 10px;              /* Distance from the top */
@@ -36,5 +45,24 @@ body {
 
 /* Button Hover Effect */
 .change-size:hover {
+    background-color: #007bb5; /* Darker shade on hover */
+}
+
+.clear-size {
+    position: absolute;      /* Use absolute positioning */
+    top: 50px;              /* Distance from the top */
+    left: 10px;             /* Distance from the left */
+    z-index: 2;             /* Ensure the button is above other elements */
+    background-color: #0091f7; /* Initial background color */
+    color: #f2f2f2;         /* Text color */
+    border: none;           /* No border */
+    margin: 5px;            /* Margin around the button */
+    padding: 9px;           /* Padding inside the button */
+    font-weight: 600;       /* Bold text */
+    cursor: pointer;        /* Change cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.clear-size:hover {
     background-color: #007bb5; /* Darker shade on hover */
 }
