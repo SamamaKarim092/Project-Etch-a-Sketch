@@ -66,3 +66,20 @@ body {
 .clear-size:hover {
     background-color: #007bb5; /* Darker shade on hover */
 }
+
+
+footer {
+    position: absolute;        /* Positioning the footer */
+    bottom: 10px;             /* Distance from the bottom */
+    left: 161px;                /* Center the footer horizontally */
+    transform: translateX(-50%); /* Adjust position to truly center it */
+    text-align: center;       /* Center the text */
+    font-size: 16px;          /* Font size */
+    font-weight: 600;         /* Font Boldness */
+    color: #333;              /* Text color */
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+    padding: 10px;            /* Padding around the text */
+    border-radius: 5px;      /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    width: auto;              /* Allow the footer to adjust its width */
+}
